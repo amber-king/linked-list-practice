@@ -18,6 +18,17 @@ class LinkedList {
   constructor(head = null) {
     this.head = head;
   }
+  insert(data){
+    let newNode = new Node(data);
+    if (!this.head) {
+      this.head = newNode;
+    } else {
+      newNode.next = this.head;
+      this.head = newNode;
+    }
+  }
+
+  
 }
 // ? LinkedList funtionailty test --v
 // let listOne = new LinkedList(oneNode)
