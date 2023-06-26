@@ -18,6 +18,10 @@ class LinkedList {
   constructor(head = null) {
     this.head = head;
   }
+
+  // ✓ Can create a new node
+  // ✓ Can create a new linked list
+  // ✓ Add to the linked list using an insert method
   insert(data){
     let newNode = new Node(data);
     if (!this.head) {
@@ -27,6 +31,17 @@ class LinkedList {
       this.head = newNode;
     }
   }
+  size(){
+    let count = 0;
+    let node = this.head;
+    while (pointer) {
+      count++;
+      node = node.next;
+    }
+    return count;
+  }
+
+  
 
   
 }
