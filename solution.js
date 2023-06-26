@@ -31,15 +31,37 @@ class LinkedList {
       this.head = newNode;
     }
   }
+
+  //   ✓ Count the length of the linked list (1 ms)
   size(){
     let count = 0;
-    let node = this.head;
+    let pointer = this.head;
     while (pointer) {
       count++;
-      node = node.next;
+      pointer = pointer.next;
     }
     return count;
   }
+
+  // ✓ Delete from the linked list by key
+delete(key){
+  let node = this.head;
+  let counter = 0;
+  while (node.data !== key && node.next) {
+    counter++;
+    node = node.next;
+  }
+  let foundNode = node;
+  node = this.head;
+  for (let i = 1; i < counter; i++) {
+    node = node.next;
+  }
+  node.next = foundNode.next;
+}
+
+
+
+
 
   
 
