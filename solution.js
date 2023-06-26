@@ -118,17 +118,40 @@ class LinkedList {
   }
 
   //  ✓ Check if list is empty
-  isEmpty(){
-  return !this.head ;
+  isEmpty() {
+    return !this.head;
   }
-  
-  
-//  ✓ Clear the linked list
+
+  //  ✓ Clear the linked list
   clear() {
-    this.head = null; 
+    this.head = null;
   }
-  // toArray() {}
-  // containsDuplicates() {}
+
+  //  ✓ Convert data from linked lists into an array
+  toArray() {
+    let node = this.head;
+    let ListToArray = [];
+    while (node) {
+      ListToArray.push(node.data);
+      node = node.next;
+    }
+    return ListToArray;
+  }
+
+  //  ✓ Check for duplicates 
+  containsDuplicates() {
+    let node = this.head;
+    let copy = {};
+    while (node) {
+      if (copy[node.data]) {
+        return true;
+      } else {
+        copy[node.data] = 1;
+      }
+      node = node.next;
+    }
+    return false;
+  }
 }
 
 // ? LinkedList funtionailty test --v
