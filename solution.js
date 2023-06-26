@@ -22,7 +22,7 @@ class LinkedList {
   // ✓ Can create a new node
   // ✓ Can create a new linked list
   // ✓ Add to the linked list using an insert method
-  insert(data){
+  insert(data) {
     let newNode = new Node(data);
     if (!this.head) {
       this.head = newNode;
@@ -33,7 +33,7 @@ class LinkedList {
   }
 
   //   ✓ Count the length of the linked list (1 ms)
-  size(){
+  size() {
     let count = 0;
     let pointer = this.head;
     while (pointer) {
@@ -44,28 +44,35 @@ class LinkedList {
   }
 
   // ✓ Delete from the linked list by key
-delete(key){
-  let node = this.head;
-  let counter = 0;
-  while (node.data !== key && node.next) {
-    counter++;
-    node = node.next;
+  delete(key) {
+    let node = this.head;
+    let counter = 0;
+    while (node.data !== key && node.next) {
+      counter++;
+      node = node.next;
+    }
+    let foundNode = node;
+    node = this.head;
+    for (let i = 1; i < counter; i++) {
+      node = node.next;
+    }
+    node.next = foundNode.next;
   }
-  let foundNode = node;
-  node = this.head;
-  for (let i = 1; i < counter; i++) {
-    node = node.next;
+
+  // ✓ Retrieve the first element
+  getFirst() {
+    return this.head;
   }
-  node.next = foundNode.next;
-}
 
-
-
-
-
-  
-
-  
+  //
+  getLast() {
+    let node = this.head;
+    if (!this.head) return null;
+    while (node.next) {
+      node = node.next;
+    }
+    return node;
+  }
 }
 // ? LinkedList funtionailty test --v
 // let listOne = new LinkedList(oneNode)
@@ -73,9 +80,6 @@ delete(key){
 // LinkedList {
 //   head: Node { data: 1, next: Node { data: 2, next: null } }
 // }
-
-
-
 
 module.exports = {
   Node,
